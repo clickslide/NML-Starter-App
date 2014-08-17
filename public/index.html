@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <title>NYC Garbage Zones</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        html, body, #map{
+            height: 100%;
+        }
+        .centered {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+        }
+        .bot {
+            position: fixed;
+          top: 55%;
+          left: 46%;
+        }
+
+    </style>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+<!--    <link rel="stylesheet" href="css/index.css" />-->
+    
+</head>
+
+<body>
+    <!--Simple Bootstrap navbar with a refresh button-->
+<!--
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <h1>FOOTPRINT</h1>
+    </nav>
+-->
+<!--    <div id="wrapper">-->
+        <div id="map"><div class="centered"><img class="centered" src="img/ajax-loader.gif"/><span class="bot" style="margin-top:10px;">Loading Maps and Data...</span></div></div>
+<!--    </div>-->
+    <!--Jquery is a dependency -->
+    <script type="text/javascript" src="js/jquery2.min.js"></script>
+    <!--Twitter bootstrap for styling -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!--Twitter bootstrap for styling -->
+    <script type="text/javascript" src="js/underscore-min.js"></script>
+    <!--Template Views -->
+    <script type="text/javascript" src="js/jsviews.min.js"></script>
+    <!--NML see documentation included-->
+    <script type="text/javascript" src="js/NML.js"></script>
+    <!--D3-->
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="js/chroma.min.js"></script>
+    <!--App -->
+    <script type="text/javascript" src="js/app-config.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Behavioral Integration Testing</title>
+
+    <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.0.0/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="lib/jasmine-2.0.0/jasmine.css">
+     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="lib/jasmine-2.0.0/jasmine.js"></script>
+    <script type="text/javascript" src="lib/jasmine-2.0.0/jasmine-html.js"></script>
+    <script type="text/javascript" src="lib/jasmine-2.0.0/boot.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <!--Template Views -->
+    <script type="text/javascript" src="js/jsviews.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- include source files here... -->
+    <script type="text/javascript" src="js/NML.js"></script>
+    <script type="text/javascript">
+        var jasmine_config = {
+            live: true,
+            nocache: true,
+            json: {},
+            email: "clickslide",
+            pass: "4gFFr4nc0",
+            postparams: [{
+                name: "starttime",
+                value: "2014-03-29T18:30"
+            }, {
+                name: "endtime",
+                value: "2014-03-29T21:30"
+            }]
+        }
+    </script>
+    <!-- include spec files here... -->
+    <script type="text/javascript" src="js/app-config.js"></script>
+    <script type="text/javascript" src="spec/NmlSpec.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Using Structured Data in Production</h1>
+        <div class="container">
+            <div class="label label-default" id="get">GET</div>
+            <div class="label label-default" id="put">PUT</div>
+            <div class="label label-default" id="post">POST</div>
+            <div class="label label-default" id="delete">DELETE</div>
+            <div class="row">
+                <div id="jazzy" class="well">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

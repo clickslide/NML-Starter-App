@@ -1,0 +1,23 @@
+<!-- Example Template for Clickslide data model -->
+<div class="container">
+    <div class="row">
+        <h2 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{:title}}</h2>
+    </div>
+    <div class="row">
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">Click a tweet to reply.</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <ul class="list-group">
+            {{for pages.BasicPage}}
+            <!--load list of child pages here -->
+            <a id="{{:#index}}-{{:uniqueApiId}}" href="#{{:uniqueApiId}}" class="list-group-item tweet-retweet">
+                <img class="pull-left" data-src="holder.js/100x100" />
+                <h4 id="screen_name-{{:#index}}" class="list-group-item-heading tweeter" data-content="title">{{:title}}</h4>
+                <p id="original_tweet-{{:#index}}" class="list-group-item-text tweet" data-content="pageText">{{:pageText}}</p>
+            </a>
+            {{/for}}
+        </ul>
+    </div>
+</div>
