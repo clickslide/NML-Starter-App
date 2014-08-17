@@ -10,14 +10,14 @@ $(function () {
     /** Simple holder to tell which template system we are using **/
     var tmpsrc = "jsviews";
 
-    /** 
+    /**
      * Step 1: Create the NML object
      */
     var nml = new NML();
     //nml.setBaseUrl(appconfig.url, 'http', 'clickslide.loc');
     nml.setBaseUrl(appconfig.url, 'https', 'datadipity.com');
 
-    /** 
+    /**
      * Callback for NML.get function
      * This is where we will process the data
      */
@@ -40,13 +40,7 @@ $(function () {
                 iconRetinaUrl: 'img/crown.png',
                 iconSize: [38, 38]
             });
-            //        L.marker(e.latlng).addTo(map)
-            //            .on('click', function (evt) {
-            //                // 
-            //                alert("Display District Leader");
-            //            });
             L.marker(e.latlng).bindPopup("<h5>Your Location</h5>").addTo(map);
-            //L.circle(e.latlng, radius).addTo(map);
         }
 
         function onLocationError(e) {
@@ -60,8 +54,8 @@ $(function () {
             setView: true,
             maxZoom: 11
         });
-        // legend 
-        
+        // legend
+
         // set the home page ID for later use
         nml.setHomePageId(json.ListPage["@attributes"].id);
         var array = json.ListPage.pages.BasicPage;
@@ -156,12 +150,8 @@ $(function () {
         var distmax = _.max(districts, function (o) {
             return o.total;
         });
-        //        _.each(districts, function(item){
-        //            item.avg = item.total / Object.keys(districts).length;  
-        //        });
         console.log([distmin.total, distmax.total]);
         var scale = chroma.scale(['green', 'red']).domain([distmin.total, distmax.total]);
-        //console.log(districts);
 
 
         // don't do anything until the template loads
@@ -191,7 +181,7 @@ $(function () {
                     }else{
                         disct = districts[feature.properties.communityDistrict];
                         console.log(disct);
-                        layer.bindPopup("<h5>Not Yet Available</h5>");   
+                        layer.bindPopup("<h5>Not Yet Available</h5>");
                     }
 
                 }
@@ -209,9 +199,9 @@ $(function () {
             nml.get(onGetData, true);
         } else {
             // add message to login modal
-            nml.Register("Aaron Franco", "hello@clickslide.co", "4gFFr4nc0", "4gFFr4nc0", onLoginOrRegister);
+            nml.Register("Your Name", "your email", "*****", "*****", onLoginOrRegister);
         }
     }
     //nml.get(onGetData, true);
-    nml.Login("hello@clickslide.co", "4gFFr4nc0", onLoginOrRegister);
+    nml.Login("your email", "your password", onLoginOrRegister);
 });
