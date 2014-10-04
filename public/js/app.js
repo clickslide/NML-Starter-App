@@ -17,10 +17,10 @@ $(function () {
     //nml.setBaseUrl(appconfig.url, 'http', 'clickslide.loc');
     nml.setBaseUrl(appconfig.url, 'https', 'datadipity.com');
 
-    $button.on('click', function(evt){
-
-        $.get('https://datadipity.com....?message=xyz&num=xyz');
-    });
+//    $button.on('click', function(evt){
+//
+//        $.get('https://datadipity.com....?message=xyz&num=xyz');
+//    });
 
     /**
      * Callback for NML.get function
