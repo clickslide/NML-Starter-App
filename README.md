@@ -27,5 +27,3 @@ node server.js
 
 http://localhost:5000
 ````
-
-
