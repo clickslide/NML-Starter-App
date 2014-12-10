@@ -1,0 +1,77 @@
+<!--Modal to show Authorize APIs-->
+<div class="modal fade" id="generic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p id='authtext'>
+                    <a id="authlink" href="#" class="btn btn-default">Authorize Here</a>
+                    <a id="authclose" href="#" class="btn btn-default">Close</a>
+                    <!--Progress/Loading... Indicator-->
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.modal -->
+<!--Modal to show Login/Register-->
+<div class="modal fade" id="loginRegister" tabindex="-2" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
+                <h4 id="tweetModalTitle" class="modal-title">Login/Register</h4>
+                <p id="failedLogin" class="text-danger"></p>
+            </div>
+            <div class="modal-body">
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="loginFormTab">
+                        <form id="loginForm" role="form">
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input id="loginEmail" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input id="loginPassword" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Remember Me?</label>
+                                <input id="loginRemember" type="checkbox" class="form-control" id="rememberme" />
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                            <a href="#registerFormTab" data-toggle="tab" class="btn btn-link">Register</a>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="registerFormTab">
+                        <form id="registerForm" role="form">
+                            <div class="form-group">
+                                <label for="exampleInputName">Name</label>
+                                <input id="registerName" type="text" class="form-control" id="exampleInpuName" placeholder="Enter name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input id="registerEmail" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input id="registerPassword" type="password" class="form-control" id="password1" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password Again</label>
+                                <input id="registerPassword2" type="password" class="form-control" id="password2" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                            <a href="#loginFormTab" data-toggle="tab" class="btn btn-link">Login</a>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

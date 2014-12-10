@@ -7,44 +7,156 @@
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-    <title>NYC Garbage Zones</title>
-    <style>
-        body {
-            padding: 0;
-            margin: 0;
-        }
-        html, body, #map{
-            height: 100%;
-        }
-        .centered {
-          position: fixed;
-          top: 50%;
-          left: 50%;
-        }
-        .bot {
-            position: fixed;
-          top: 55%;
-          left: 46%;
-        }
-
-    </style>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/L.Control.Locate.css"/>
+<!--[if lt IE 9]>
+    <link rel="stylesheet" href="//rawgithub.com/domoritz/leaflet-locatecontrol/gh-pages/src/L.Control.Locate.ie.css"/>
+<![endif]-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
-<!--    <link rel="stylesheet" href="css/index.css" />-->
-    
+    <link href="css/jasny-bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css" />
+    <title>Footprint</title>
+    <style>
+        #footprintlogo, #footprintlogoCenter{
+            height:25px;
+        }
+
+        #footprintlogo{
+            height:50px;
+        }
+
+        .popup .leaflet-top .leaflet-control-zoom .leaflet-control-zoom-out{
+            background-color:#52b5c2;
+        }
+        .popup, .leaflet-top .leaflet-control-zoom. leaflet-control-zoom-in{
+            background-color:#52b5c2;
+        }
+    </style>
 </head>
 
 <body>
-    <!--Simple Bootstrap navbar with a refresh button-->
-<!--
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <h1>FOOTPRINT</h1>
-    </nav>
--->
-<!--    <div id="wrapper">-->
-        <div id="map"><div class="centered"><img class="centered" src="img/ajax-loader.gif"/><span class="bot" style="margin-top:10px;">Loading Maps and Data...</span></div></div>
-<!--    </div>-->
+    <!-- Navigation -->
+    <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
+      <a class="navmenu-brand" href="#"><img id="footprintlogo" src="img/logo.png"/></a>
+      <ul class="nav navbar-nav">
+            <li><a id="homebtn" href="#">Home</a></li><br/>
+          <li><a id="infobtn" href="#">Information</a></li><br/>
+            <li><a href="#" id="incentivesbtn">Incentives</a></li><br/>
+            <li><a href="#" id="impactbtn">Impact</a></li>
+        </ul>
+    </div>
+
+    <div class="navbar navbar-default navbar-fixed-top hidden-md hidden-lg">
+      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <img id="footprintlogoCenter" src="img/logo.png"/>
+    </div>
+
+    <div id="information">
+        <div class="container">
+            <h1>Search For A Material</h1>
+            <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon glyphicon-barcode"></span></span>
+              <input type="text" class="form-control">
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-search"</span>
+                </span>
+            </div><br/>
+            <div class="list-group">
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">List group item heading</h4>
+                <p class="list-group-item-text">Some text about something</p>
+              </a>
+                <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">List group item heading</h4>
+                <p class="list-group-item-text">Some text about something</p>
+              </a>
+                <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">List group item heading</h4>
+                <p class="list-group-item-text">Some text about something</p>
+              </a>
+            </div>
+        </div>
+    </div>
+    <div id="map"></div>
+    <div id="loading">
+      <div class="loading-indicator">
+        <div class="progress progress-striped active">
+          <div class="progress-bar progress-bar-success" style="width: 100%"></div>
+        </div>
+      </div>
+    </div>
+
+
+<div class="modal fade" id="homeModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">
+              HOME / PROFILE
+            </h4>
+          </div>
+          <div class="modal-body">
+            <img class="screenshot" src="img/Footprint_Home_screen.png" height="750" style="display:block;margin:0 auto;"/>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+<div class="modal fade" id="neighbourhoodModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">
+              NEIGHBOURHOOD
+            </h4>
+          </div>
+          <div class="modal-body">
+            <img class="screenshot" src="img/Footprint_App_Neighbourhood.png"  height="750" style="display:block;margin:0 auto;"/>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+<div class="modal fade" id="cityModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">
+              CITY
+            </h4>
+          </div>
+          <div class="modal-body">
+            <img class="screenshot" src="img/Footprint_App_CityMap.png"  height="750" style="display:block;margin:0 auto;"/>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+<div class="modal fade" id="locationModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">
+              COLLECTION LOCATIONS
+            </h4>
+          </div>
+          <div class="modal-body">
+              <img class="screenshot" src="img/Footprint_App_CollectionPoints.png"  height="750" style="display:block;margin:0 auto;"/>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <!--Jquery is a dependency -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
     <script type="text/javascript" src="js/jquery2.min.js"></script>
     <!--Twitter bootstrap for styling -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -52,14 +164,19 @@
     <script type="text/javascript" src="js/underscore-min.js"></script>
     <!--Template Views -->
     <script type="text/javascript" src="js/jsviews.min.js"></script>
+    <script src="js/jasny-bootstrap.min.js"></script>
     <!--NML see documentation included-->
     <script type="text/javascript" src="js/NML.js"></script>
     <!--D3-->
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="js/L.Control.Locate.js" ></script>
     <script src="js/chroma.min.js"></script>
     <!--App -->
     <script type="text/javascript" src="js/app-config.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
+    <script>
+        app.initialize();
+    </script>
 </body>
 
 </html>
