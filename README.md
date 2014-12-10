@@ -27,3 +27,9 @@ node server.js
 
 http://localhost:5000
 ````
+
+TODO
+====
+
+1. Fix problems with Map scaling
+2. Close side panel menu after item is clicked
